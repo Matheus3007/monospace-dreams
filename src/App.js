@@ -131,6 +131,9 @@ function RoomOne() {
           {!typing ? <pre>{art}</pre> : <pre className="placeholder">{art}</pre>}
         </p>
       </div>
+      <div>
+      <button className='terminal-button secret-window'>passar pela janela</button>
+    </div>
     </div>
   );
 }

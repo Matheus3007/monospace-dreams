@@ -2,6 +2,7 @@
 .App{
   padding-left: 10%;
   padding-right: 10%;
+  margin-bottom: 400px;
   min-width: 100;
 
 }
@@ -89,4 +90,14 @@
 .placeholder {
   visibility: hidden;
   white-space: pre-wrap; /* Preserves the spaces and line breaks */
+}
+
+.secret-window{
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .secret-window {
+    display: block; /* Show the button when the window is below 768px wide */
+  }
 }
