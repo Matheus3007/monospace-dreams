@@ -1,0 +1,92 @@
+
+.App{
+  padding-left: 10%;
+  padding-right: 10%;
+  min-width: 100;
+
+}
+
+.App-header {
+  align-items: start;
+  justify-content: start;
+  font-size: calc(10px + 2vmin);
+  color: #33ff33;
+}
+
+.Header-content {
+  padding: 10px;
+  align-items: start;
+  outline: 2px solid #33ff33;
+  width: 100%; /* Set the width to 100% of the viewport width */
+}
+
+.App-body {
+  align-items: start;
+  justify-content: start;
+  font-size: calc(1px + 2vmin);
+  color: #33ff33;
+}
+
+.terminal-button {
+  outline: 2px solid #33ff33;
+  background-color: black;
+  color: #33ff33;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: calc(1px + 2vmin);
+  width: fit-content;
+}
+
+.terminal-button:hover {
+  background-color: #33ff33;
+  color: black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  min-height: 20x; /* Example height, adjust as needed */
+}
+
+/* Style for the tick */
+.inline {
+  margin-right: 5px; /* Adjust spacing as needed */
+  color: #00ff00; /* Example color for terminal-style */;
+}
+
+/* Style for the input */
+.terminal-input {
+  background-color: transparent; /* Transparent background */
+  font-size: calc(1px + 2vmin);
+  border: none; /* Remove borders */
+  color: #00ff00; /* Match input text color with terminal style */
+  font-family: monospace; /* Monospace font */
+  outline: none;
+  width: 100%; /* Set the width to 100% of the viewport width */
+}
+
+/* Additional styling to remove autofill background in some browsers */
+.terminal-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
+  -webkit-text-fill-color: #00ff00 !important;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.not-so-small-font{
+  font-size: 10x;
+}
+
+.smallest-font{
+  font-size: 4px;
+}
+
+.placeholder {
+  visibility: hidden;
+  white-space: pre-wrap; /* Preserves the spaces and line breaks */
+}
