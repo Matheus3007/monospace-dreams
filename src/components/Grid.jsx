@@ -2,37 +2,30 @@
 import React, { useState } from 'react';
 import './Grid.css'; // Import the CSS file for styling
 
+
 const Grid = ({ rows, columns, cellSize }) => {
-  const [grid, setGrid] = useState(Array.from({ length: rows }, () => Array(columns).fill(false)));
-
-  const toggleCell = (row, col) => {
-    const newGrid = grid.map((r, i) => r.map((cell, j) => (i === row && j === col ? !cell : cell)));
-    setGrid(newGrid);
-  };
-
+  let grid_cols = 8;
+  let grid_rows = 8;
+  const cells = [];
+  for (let index = 0; index < grid_cols*grid_rows; index++) {
+    cells.push(<Cell />)
+    
+  }
   return (
-    <div
-      className="grid"
-      style={{
-        gridTemplateColumns: `repeat(${columns}, ${cellSize}px)`,
-        gridTemplateRows: `repeat(${rows}, ${cellSize}px)`,
-        width: `${columns * cellSize}px`,
-        height: `${rows * cellSize}px`,
-      }}
-    >
-      {grid.flat().map((cell, index) => (
-        <div
-          key={index}
-          className={`cell ${cell ? 'filled' : ''}`}
-          onClick={() => {
-            const row = Math.floor(index / columns);
-            const col = index % columns;
-            toggleCell(row, col);
-          }}
-        ></div>
-      ))}
+    
+    <div class="grid grid grid-cols-8 gap-0 grid-width">
+      {cells}
     </div>
   );
 };
+
+function Cell() {
+  const [filled, setFilled] = useState(true);
+  function handleClick() {
+    console.log('Cell clicked:', filled);
+    setFilled(!filled);
+  }
+  return <div onClick={handleClick} className={`cell ${filled ? 'filled' : ''}`}></div>;
+}
 
 export default Grid;

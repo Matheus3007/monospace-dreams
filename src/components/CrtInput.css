@@ -1,0 +1,29 @@
+
+.container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the tick */
+  .inline {
+    margin-right: 5px; /* Adjust spacing as needed */
+    color: #00ff00; /* Example color for terminal-style */;
+  }
+  
+  /* Style for the input */
+  .terminal-input {
+    background-color: transparent; /* Transparent background */
+    font-size: calc(1px + 2vmin);
+    border: none; /* Remove borders */
+    color: #00ff00; /* Match input text color with terminal style */
+    font-family: monospace; /* Monospace font */
+    outline: none;
+    width: 100%; /* Set the width to 100% of the viewport width */
+  }
+  
+  /* Additional styling to remove autofill background in some browsers */
+  .terminal-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
+    -webkit-text-fill-color: #00ff00 !important;
+  }
+  
