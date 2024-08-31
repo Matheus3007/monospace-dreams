@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import './crt.css';
 import CrtInput from './components/CrtInput';
+import RoomTwo from './components/RoomTwo';
+import printMaze from './components/Maze';
+
 import React from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import { ReactTyped } from "react-typed";
@@ -56,6 +59,7 @@ function App() {
 
   const [typing, setTyping] = useState(true);
   const [firstRoom, setFirstRoom] = useState(false);
+  const [secondRoom, setSecondRoom] = useState(false);
 
   const handleTypingComplete = () => {
     setTyping(false);
@@ -67,7 +71,9 @@ function App() {
 
   return (
     <div className="App crt">
-      <header className="App-header">
+      <printMaze />
+
+      <header className="App-header py-10">
         <h2 className="Header-content">
           <ReactTyped strings={["> monospace dreams"]} typeSpeed={40} showCursor={false} />
         </h2>
@@ -82,7 +88,8 @@ function App() {
           </p>
         </div>
         {!typing && <AfterTyping setFirstRoom={setFirstRoom} />}
-        {firstRoom && <RoomOne />}
+        {firstRoom && <RoomOne setSecondRoom={setSecondRoom} />}
+        {secondRoom && <RoomTwo />}
       </div>
     </div>
   );
@@ -102,7 +109,10 @@ function AfterTyping({ setFirstRoom }) {
   );
 }
 
-function RoomOne() {
+function RoomOne({ setSecondRoom }) {
+  const handleClick = () => {
+    setSecondRoom(true);
+  }
   const [typing, setTyping] = useState(true);
 
   const text = [`Você seguiu então!<br><br>
@@ -132,10 +142,12 @@ function RoomOne() {
         </p>
       </div>
       <div>
-      <button className='terminal-button secret-window'>passar pela janela</button>
-    </div>
+        <button onClick={handleClick} className='terminal-button secret-window'>passar pela janela</button>
+      </div>
     </div>
   );
 }
+
+
 
 export default App;
