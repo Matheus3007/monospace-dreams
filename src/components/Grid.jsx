@@ -90,7 +90,7 @@ const Grid = ({ rows, columns, initialStates, onMazeSolved }) => {
   };
 
   return (
-    <div className={`grid grid-cols-${columns} gap-0`}>
+    <div className={`grid grid-cols-12 gap-0`}>
       {cellStates.map((row, rowIndex) =>
         row.map((cell, colIndex) => {
           const isBeginning = rowIndex === 0 && colIndex === 0;
