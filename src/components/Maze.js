@@ -18,3 +18,12 @@ function printMaze(x, y, maze) {
 }
 
 
+function DisplayGrid(maze){
+    const [mazeState, setMazeState] = useState(maze);
+    return (
+        <div>
+            <button onClick={() => printMaze(0, 0, mazeState)}>Start</button>
+            <pre>{mazeState.map(row => row.join(' ')).join('\n')}</pre>
+        </div>
+    );
+}

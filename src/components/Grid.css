@@ -1,16 +1,22 @@
 /* Grid.css */
 
-  .cell {
-    background-color: #33ff33;
-    border: 1px solid #33ff33;
-    height: 4vw;
-  }
-  
-  .cell.filled {
-    background-color: black;
-  }
+.cell {
+  background-color: #33ff33;
+  border: 1px solid #33ff33;
+  height: 4vw;
+  width: 4vw;
+}
 
-  .grid-width{
-    width: calc(4vw * 8); 
-  }
-  
+.cell.filled {
+  background-color: black;
+}
+
+.cell.beginning {
+  background-color: #FFB000; /* Red for the start cell */
+  border: 1px solid #33ff33;
+}
+
+.cell.goal {
+  background-color: #FFB000; /* Blue for the goal cell */
+  border: 1px solid #33ff33;
+}
