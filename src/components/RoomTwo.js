@@ -6,6 +6,7 @@ import Grid from "./Grid";
 
 function RoomTwo() {
   const [typing, setTyping] = useState(true);
+  const [mazeSolved, setMazeSolved] = useState(false);
 
   const text = [
     `
@@ -40,39 +41,11 @@ function RoomTwo() {
   ⠈⠛⠛⠛⠋⣁⣼⣿⡶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   ⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   `;
-  const initialStates = Array.from(
-    { length: 8 * 12 },
-    () => Math.random() > 0.5
-  );
-  const generateMazePath = () => {
-    // Initialize the array with all cells filled
-    const initialStates = Array.from({ length: 8 * 12 }, () => true);
-  
-    // Manually define a path
-    const path = [
-      [0, 0], [0, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2],
-      [4, 3], [4, 4], [4, 5], [4, 6], [4, 7], [4, 8], [4, 9],
-      [4, 10], [4, 11], [5, 11], [6, 11], [7, 11]
-    ];
-  
-    // Mark path cells as empty
-    path.forEach(([row, col]) => {
-      initialStates[row * 12 + col] = false;
-    });
-  
-    return initialStates;
-  };
 
-  const  maze = [
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true]
-  ];
+  const rows = 8; // Number of rows
+  const columns = 12; // Number of columns
+  const initialValue = true; // Value to fill
+  const maze = Array.from({ length: rows }, () => Array(columns).fill(initialValue));
 
   function pathToList(matrix) {
     const list = [];
@@ -106,14 +79,11 @@ function RoomTwo() {
         </p>
       </div>
       <div className="flex items-center justify-center py-10">
-        <Grid rows={8} columns={12} initialStates={pathToList(maze)} />
+        <Grid rows={8} columns={12} initialStates={pathToList(maze)} onMazeSolved={setMazeSolved} />
       </div>
+      {mazeSolved && (<div><button className="terminal-button">sair do labirinto</button></div>)}
+      
 
-      <div>
-        <button className="terminal-button secret-window">
-          passar pela janela
-        </button>
-      </div>
     </div>
   );
 }
