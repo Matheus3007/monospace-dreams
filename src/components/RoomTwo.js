@@ -41,7 +41,7 @@ function RoomTwo() {
   ⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   `;
   const initialStates = Array.from(
-    { length: 8 * 8 },
+    { length: 8 * 12 },
     () => Math.random() > 0.5
   );
   const generateMazePath = () => {
@@ -62,9 +62,29 @@ function RoomTwo() {
   
     return initialStates;
   };
+
+  const  maze = [
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true, true, true]
+  ];
+
+  function pathToList(matrix) {
+    const list = [];
+    for (let x = 0; x < matrix.length; x++) {
+      for (let y = 0; y < matrix[x].length; y++) {
+        list.push(matrix[x][y]);
+      }
+    }
+    return list;
+  }
   
   // Usage
-  const initialStates_ = generateMazePath();
   
   
   return (
@@ -86,7 +106,7 @@ function RoomTwo() {
         </p>
       </div>
       <div className="flex items-center justify-center py-10">
-        <Grid rows={8} columns={12} initialStates={initialStates_} />
+        <Grid rows={8} columns={12} initialStates={pathToList(maze)} />
       </div>
 
       <div>
